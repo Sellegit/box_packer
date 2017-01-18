@@ -1,6 +1,6 @@
 module BoxPacker
   class << self
-    def get_packing_size(packing)
+    def packing_used_dimensions(packing)
       return if packing.nil?
       
       depth = []
