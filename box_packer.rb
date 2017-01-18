@@ -1,5 +1,22 @@
 module BoxPacker
   class << self
+    def get_packing_size(package)
+      depth = []
+      width = []
+      height = []
+
+      package[:spaces].each do |space|
+        depth << space[:position][0]
+        width << space[:position][1]
+        height << space[:position][2]
+      end
+      max_depth, _ = depth.sort.reverse
+      max_width, _ = width.sort.reverse
+      max_height, _ = height.sort.reverse
+
+      return max_depth, max_width, max_height
+    end
+
     def pack(container:, items:)
       packings = []
 
