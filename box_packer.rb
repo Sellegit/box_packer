@@ -1,11 +1,12 @@
 module BoxPacker
   class << self
-    def get_packing_size(package)
+    def get_packing_size(packing)
+      return if packing.nil?
+      
       depth = []
       width = []
       height = []
-
-      package[:spaces].each do |space|
+      packing[:spaces].each do |space|
         depth << space[:position][0]
         width << space[:position][1]
         height << space[:position][2]
